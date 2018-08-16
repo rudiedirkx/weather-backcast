@@ -1,0 +1,3 @@
+<?php
+
+const WEATHER_LOCATION_ID = '123456';

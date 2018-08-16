@@ -1,0 +1,19 @@
+{
+    "name": "rdx/weather",
+    "type": "projet",
+    "require": {
+        "rdx/db": "^1.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "rdx\\weather\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rudie Dirkx",
+            "email": "github@hotblocks.nl"
+        }
+    ]
+}
