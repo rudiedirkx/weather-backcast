@@ -12,10 +12,12 @@ $batch = strtotime($forecast['timestamp']);
 
 $db->begin();
 
+$predictions = 0;
 foreach ( $forecast['days'] as $day ) {
 	foreach ( $day['hours'] ?? [] as $hour ) {
 		$predicted = strtotime($hour['datetime']);
 
+		$predictions++;
 		Prediction::insert([
 			'taken_on' => $now,
 			'predicted_for' => $predicted,
@@ -28,3 +30,5 @@ foreach ( $forecast['days'] as $day ) {
 }
 
 $db->commit();
+
+var_dump($predictions);
