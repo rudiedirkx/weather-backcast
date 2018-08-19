@@ -17,7 +17,7 @@ $measurements = $db->fetch("
 	order by hour
 ");
 
-header('Content-type: text/html; charset=utf-8');
+include 'tpl.header.php';
 
 ?>
 <table border="1" cellspacing="0" cellpadding="6">

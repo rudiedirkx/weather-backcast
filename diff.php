@@ -21,7 +21,7 @@ $measurements = $db->fetch("
 			round(max(b.sunshine) - min(b.sunshine), 1) sundiff,
 			round(max(b.precipitation) - min(b.precipitation), 1) raindiff
 		from predictions a
-		join predictions b on b.predicted_for = a.predicted_for and b.taken_on > a.taken_on
+		join predictions b on b.predicted_for = a.predicted_for and b.taken_on > a.taken_on and b.taken_on < a.taken_on + 86400/2
 		group by a.predicted_for, a.taken_on, hours_ahead
 		having measurements > 1
 	) x
@@ -29,7 +29,7 @@ $measurements = $db->fetch("
 	order by hours_ahead desc
 ");
 
-header('Content-type: text/html; charset=utf-8');
+include 'tpl.header.php';
 
 ?>
 <table border="1" cellspacing="0" cellpadding="6">
